@@ -17,6 +17,6 @@ line3 = reader[2]
 
 message = "📊 **Taux Promoteur Matériaux**\n"
 for v in zip ( line3 ):
-    message += "{v}\n"
+    message += f"{ v }\n"
 
 requests.post(DISCORD_WEBHOOK, json={"content": message})
