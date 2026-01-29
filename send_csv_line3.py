@@ -15,8 +15,8 @@ reader = list(csv.reader(csv_file, delimiter=';'))
 headers = reader[0]
 line3 = reader[2]
 
-message = "📊 **Taux Promoteur Perso**\n"
-for h, v in zip(headers, line3):
-    message += f"**{h}**  {v}\n"
+message = "📊 **Taux Promoteur Matériaux**\n"
+for v in zip(line3):
+    message += f" {v}\n"
 
 requests.post(DISCORD_WEBHOOK, json={"content": message})
