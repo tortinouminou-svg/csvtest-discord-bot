@@ -12,11 +12,28 @@ response.raise_for_status()
 csv_file = io.StringIO(response.text)
 reader = list(csv.reader(csv_file, delimiter=';'))
 
-
 headers = reader[0]
 line3 = reader[2]
 
 message = "📊 **Taux Promoteur Matériaux**\n"
+for h, v in zip(headers, line3):
+    message += f"{line3}\n"
+
+requests.post(DISCORD_WEBHOOK, json={"content": message})
+
+CSV_URL = "https://monde8.empireimmo.com/api/buildings_batiments_perso.csv"
+DISCORD_WEBHOOK = os.getenv("DISCORD_WEBHOOK")
+
+response = requests.get(CSV_URL)
+response.raise_for_status()
+
+csv_file = io.StringIO(response.text)
+reader = list(csv.reader(csv_file, delimiter=';'))
+
+headers = reader[0]
+line3 = reader[2]
+
+message = "📊 **Taux Promoteur Biens Perso**\n"
 for h, v in zip(headers, line3):
     message += f"{line3}\n"
 
