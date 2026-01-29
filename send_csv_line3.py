@@ -13,7 +13,7 @@ csv_file = io.StringIO(response.text)
 reader = list(csv.reader(csv_file, delimiter=';'))
 
 
-headers = ""
+headers = 
 line3 = reader[2]
 
 message = "📊 **Taux Promoteur Matériaux**\n"
