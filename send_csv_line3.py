@@ -19,4 +19,4 @@ message = "📊 **Taux Promoteur Perso**\n"
 for h, v in zip(headers, line3):
     message += f"**{h}**  {v}\n"
 
-requests.post(DISCORD_WEBHOOK, json={"content": line3})
+requests.post(DISCORD_WEBHOOK, json={"content": message})
