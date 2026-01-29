@@ -12,11 +12,10 @@ response.raise_for_status()
 csv_file = io.StringIO(response.text)
 reader = list(csv.reader(csv_file, delimiter=';'))
 
-headers = reader[0]
 line3 = reader[2]
 
 message = "📊 **Taux Promoteur Matériaux**\n"
 for v in zip ( line3 ):
-    message += f"{ v }\n"
+    message += f"{ line3 }\n"
 
 requests.post(DISCORD_WEBHOOK, json={"content": message})
