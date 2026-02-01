@@ -2,7 +2,7 @@ name: CSV to Discord
 
 on:
   schedule:
-    - cron: "0 */4 * * *"
+    - cron: "5 */4 * * *"
   workflow_dispatch:
 
 jobs:
